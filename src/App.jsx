@@ -13,7 +13,7 @@ import Contact from "./pages/Contact";
 import NewsManagement from "./pages/admin/news/NewsManagement";
 import EventRegistration from "./pages/EventRegistration";
 import EventDetails from "./pages/EventDetails";
-import HomepageManagement from "./pages/admin/homepage/HomepageManagement";
+import HomepageManagement from "./pages/admin/Homepage/HomepageManagement";
 import MembershipApplication from "./pages/MembershipApplication";
 import MembershipSuccess from "./pages/MembershipSuccess";
 
@@ -25,7 +25,7 @@ import ContactManagement from "./pages/admin/contact/ContactManagement";
 import Applications from "./pages/Applications";
 import Members from "./pages/admin/Members";
 import MessagesManagement from "./pages/admin/messages/MessagesManagement";
-import LeadershipAdmin from "./pages/admin/leadership/Leadership";
+import LeadershipAdmin from "./pages/admin/Leadership/Leadership";
 import EventsDashboard from "./pages/admin/events/EventsDashboard";
 import EventRegistrations from "./pages/admin/events/EventRegistrations";
 

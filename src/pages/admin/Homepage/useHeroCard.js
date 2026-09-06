@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 import { db } from "../../../firebase/firebase";
@@ -62,4 +63,47 @@ export async function updateHeroCard(data) {
       merge: true,
     }
   );
+}
+
+export function useHeroCard() {
+  const [data, setData] = useState(defaultHeroCard);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadHeroCard() {
+      try {
+        const heroCard = await getHeroCard();
+
+        if (active) {
+          setData(heroCard);
+        }
+      } catch (error) {
+        console.error("Failed to load hero card:", error);
+      } finally {
+        if (active) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadHeroCard();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  async function saveHeroCard(dataToSave) {
+    await updateHeroCard(dataToSave);
+    setData({ ...defaultHeroCard, ...dataToSave });
+  }
+
+  return {
+    data,
+    setData,
+    loading,
+    saveHeroCard,
+  };
 }
